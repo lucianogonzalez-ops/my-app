@@ -1,5 +1,7 @@
 import { useState } from 'react'; 
 import { useEffect } from 'react'; 
+import { createContext, useContext } from 'react';
+
 
 
 interface SegundosIniciales{
@@ -9,13 +11,7 @@ interface SegundosIniciales{
 function CountDown({segundos}:SegundosIniciales){
     const [contador, setSegundos] = useState(segundos);
     const guardado = localStorage.getItem("segundos");
-    
-    useEffect(()=>{
-        if(guardado && Number(guardado) != 0)[
-            setSegundos(Number(guardado))
-        ]
-
-    },[])
+    const [leido , setLeido]=useState(false)
     
     const styleContador={
                 fontSize: '2.5rem',
@@ -25,12 +21,16 @@ function CountDown({segundos}:SegundosIniciales){
                 marginBottom: '4px',
             }
     
-    
     useEffect(()=>{
         if (contador <= 0 )return
+        
+        if(guardado && Number(guardado) != 0 && !leido)[
+            setSegundos(Number(guardado)),
+            setLeido(true)
+        ]
+        
         const intervalo = 
         
-    
         setInterval(() => {
         
             setSegundos((prev) => prev - 1);
