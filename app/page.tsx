@@ -7,6 +7,7 @@ import CountDown from './clase7/CuentaRegresiva';
 import { BotonDecrementar, BotonIncrementar, ContadorProvider, PantallaContador } from './clase7/CounterContext';
 import {  TemaProvider } from './clase7/TemaContext';
 import { BotonCambiarTema } from './clase7/TemeCallContext';
+import { BotonIncrementarZustand } from './clase8/ContadorZustand';
 
 
 
@@ -26,6 +27,9 @@ function App() {
       <TemaProvider>
         <BotonCambiarTema></BotonCambiarTema>
       </TemaProvider>
+      <BotonIncrementarZustand/>
+
+      
     </>
   );
 }
