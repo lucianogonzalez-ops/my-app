@@ -14,14 +14,8 @@ export const useFormState = create<FormState>()(
     localName: '',
     localPassword: '',
     logOut: () => set(() => ({ localName: "" , localPassword: ""})),
-    setCredentials: (name, password) => 
-        set({ 
-        localName: name, 
-        localPassword: password 
-        }),
+    setCredentials: (name, password) => set({ localName: name, localPassword: password }),
     }),
-    {
-    name: 'DATOS_STORAGE', 
-    }
+    {name: 'DATOS_STORAGE'}
     )
 );

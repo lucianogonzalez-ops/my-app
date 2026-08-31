@@ -1,39 +1,43 @@
-'use client'; 
+"use client"; 
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom"; 
+import CuentaRegresiva from "./clase7/CuentaRegresiva"; 
+import Contador from "./clase7/ContadorClicks";
+import { BotonCambiarTema } from "./clase7/TemeCallContext";
+import { ThemeWithProvider } from "./clase7/ThemeWithProvider";
+import { BotonIncrementarZustand } from "./clase8/ContadorZustand";
+import { HandleForm } from "./clase8/UsoDeForm";
 
-import { useState } from 'react'; 
+function Home() { 
+} 
 
-import Contador from './clase7/ContadorClicks';
-import CountDown from './clase7/CuentaRegresiva';
-import { BotonDecrementar, BotonIncrementar, ContadorProvider, PantallaContador } from './clase7/CounterContext';
-import {  TemaProvider } from './clase7/TemaContext';
-import { BotonCambiarTema } from './clase7/TemeCallContext';
-import { BotonIncrementarZustand } from './clase8/ContadorZustand';
-import { HandleForm } from './clase8/UsoDeForm';
-
-
-
-function App() {
-  return (
-    <>
-      <h1>LESSON 6</h1>
-      <Contador />
-      <h1>Exercise2</h1>
-      <CountDown segundos={10}></CountDown>
-      <h1>Exercise3</h1>
-      <ContadorProvider>
-        <PantallaContador/>
-        <BotonIncrementar/>
-        <BotonDecrementar/>
-      </ContadorProvider>
-      <TemaProvider>
-        <BotonCambiarTema></BotonCambiarTema>
-      </TemaProvider>
-      <BotonIncrementarZustand/>
-      <HandleForm/>
+function App() { 
+  return ( 
+    <BrowserRouter> 
+      {/* Navegación */} 
+      <nav> 
+        <Link to="/">Home</Link> | {" "}
+        <Link to="/cuenta-regresiva">EJERCICIO 1</Link>        
+        <Link to="/Tema">EJERCICIO 2</Link>
+        <Link to="/Contador">EJERCICIO 3</Link>
+        <Link to="/Form">EJERCICIO 4</Link>
 
 
-    </>
-  );
-}
+
+      </nav> 
+
+      {/* Rutas */} 
+      <Routes> 
+        <Route path="/" element={<Home />} />
+        <Route path="/cuenta-regresiva" element={<CuentaRegresiva segundos={10} />} /> 
+        <Route path="/Tema" element={<ThemeWithProvider />} /> 
+        <Route path="/Contador" element={<BotonIncrementarZustand />} /> 
+        <Route path="/Form" element={<HandleForm />} /> 
+
+
+
+      </Routes> 
+    </BrowserRouter> 
+  ); 
+} 
 
 export default App;

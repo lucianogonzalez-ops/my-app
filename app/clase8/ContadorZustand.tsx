@@ -19,13 +19,7 @@ export function BotonIncrementarZustand() {
     <>
      <button onClick={incrementar}>Sumar 1</button>
      <p>{contador}</p>
-    
-    
-    
-    
     </>
-   
-
     )
 
 }
