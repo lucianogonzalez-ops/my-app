@@ -8,6 +8,7 @@ import { BotonDecrementar, BotonIncrementar, ContadorProvider, PantallaContador 
 import {  TemaProvider } from './clase7/TemaContext';
 import { BotonCambiarTema } from './clase7/TemeCallContext';
 import { BotonIncrementarZustand } from './clase8/ContadorZustand';
+import { HandleForm } from './clase8/UsoDeForm';
 
 
 
@@ -28,8 +29,9 @@ function App() {
         <BotonCambiarTema></BotonCambiarTema>
       </TemaProvider>
       <BotonIncrementarZustand/>
+      <HandleForm/>
 
-      
+
     </>
   );
 }

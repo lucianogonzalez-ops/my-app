@@ -1,20 +1,27 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 interface FormState {
-    name: string
-    password: string
-    setName: (name: string) => void
-    setPassword: (password: string) => void
+    localName: string;
+    localPassword: string;
+    setCredentials: (name: string, password: string) => void;
+    logOut: () => void;
 }
 
-export const useFormState = create<FormState>((set) => ({
-    name: "",
-    password: "",
-    setName: (name) => set({ name }),
-    setPassword: (password) => set({ password })
-}))
-
-export function usarFormulario(){
-    const setearNombre= useFormState((state)=state.setName)
-
-}
+export const useFormState = create<FormState>()(
+    persist(
+    (set) => ({
+    localName: '',
+    localPassword: '',
+    logOut: () => set(() => ({ localName: "" , localPassword: ""})),
+    setCredentials: (name, password) => 
+        set({ 
+        localName: name, 
+        localPassword: password 
+        }),
+    }),
+    {
+    name: 'DATOS_STORAGE', 
+    }
+    )
+);
