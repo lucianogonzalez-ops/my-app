@@ -5,8 +5,6 @@ import {TemaProvider,useTema } from './TemaContext';
 
 export function BotonCambiarTema() {
     const { tema ,cambiarTema } = useTema()
-    
-
     return (
         <>
             <button
