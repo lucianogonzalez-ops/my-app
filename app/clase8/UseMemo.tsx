@@ -1,14 +1,35 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+
+
+function useDebounce(value, delay = 500) {
+        const [debouncedValue, setDebouncedValue] = useState(value);
+
+        useEffect(() => {
+            const handler = setTimeout(() => {setDebouncedValue(value);}, delay);
+
+            return () => {clearTimeout(handler);};
+        }, [value, delay]);
+
+        return debouncedValue;
+        }
+
 
 export default function TaskList({ tasks }) {
     const [search, setSearch] = useState('')
     const [tasksWithCheck, setTasksWithCheck] = useState(tasks);
+    const debouncedSearch = useDebounce(search, 500);
+
 
     const filteredTasks = useMemo(() => {
         return tasksWithCheck.filter(
-            task => task.name?.toLowerCase().includes(search.toLowerCase()) || task.checked === true
+            task => task.name?.toLowerCase().includes(debouncedSearch.toLowerCase()) || task.checked === true
         )
-    }, [search, tasksWithCheck])
+    }, [debouncedSearch, tasksWithCheck])
+
+
+
+        
+
 
     const handleCheckboxChange = (id) => {
         setTasksWithCheck(
