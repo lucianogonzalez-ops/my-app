@@ -12,7 +12,6 @@ export function HandleForm() {
         
         setCredentials(localName, localPassword);
 
-        console.log({ name: localName, password: localPassword });
     };
 
     return (

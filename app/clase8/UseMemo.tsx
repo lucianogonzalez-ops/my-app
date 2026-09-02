@@ -27,7 +27,7 @@ export default function TaskList({ tasks }) {
 
             <ul>
                 {filteredTasks.map(task => (
-                    <li>
+                    <li key={task.id}>
                         {task.category} : {task.name}
 
                         <input
