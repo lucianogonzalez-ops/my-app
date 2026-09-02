@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 
 
-function useDebounce(value, delay = 500) {
+function useDebounce(value, delay) {
         const [debouncedValue, setDebouncedValue] = useState(value);
 
         useEffect(() => {
@@ -17,7 +17,7 @@ function useDebounce(value, delay = 500) {
 export default function TaskList({ tasks }) {
     const [search, setSearch] = useState('')
     const [tasksWithCheck, setTasksWithCheck] = useState(tasks);
-    const debouncedSearch = useDebounce(search, 500);
+    const debouncedSearch = useDebounce(search, 200);
 
 
     const filteredTasks = useMemo(() => {
