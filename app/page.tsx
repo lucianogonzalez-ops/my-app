@@ -7,6 +7,10 @@ import { ThemeWithProvider } from './clase7/ThemeWithProvider';
 import { BotonIncrementarZustand } from './clase8/ContadorZustand'; 
 import { HandleForm } from './clase8/UsoDeForm'; 
 import Counter from './clase8/UseRefTest';
+import ListaTareas from './clase8/UseMemo';
+import { UsoDeMemo } from './clase8/UseOfUseMemo';
+
+
 
 const navStyles = {
   display: 'flex',
@@ -60,7 +64,7 @@ function App() {
         <Route path="/Contador" element={<BotonIncrementarZustand />} /> 
         <Route path="/Form" element={<HandleForm />} /> 
         <Route path="/Counter" element={<Counter />} /> 
-        <Route path="/Counter" element={<Counter />} /> 
+        <Route path="/UseMemo" element={<UsoDeMemo/>} /> 
 
 
 
